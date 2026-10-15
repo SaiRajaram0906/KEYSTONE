@@ -1,0 +1,3 @@
+# Shared contract and tests — both workstreams install this
+numpy>=1.24
+scipy>=1.10

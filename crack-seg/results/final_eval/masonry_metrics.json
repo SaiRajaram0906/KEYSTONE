@@ -1,0 +1,26 @@
+{
+  "dataset": "masonry",
+  "checkpoint": "runs\\loss_focal_tversky\\best.pt",
+  "threshold": 0.96,
+  "n_images": 240,
+  "n_crack_free": 0,
+  "all_images": {
+    "iou": 0.4552732605797549,
+    "dice": 0.587547937175259,
+    "precision": 0.5451549803062031,
+    "recall": 0.7698453473237653,
+    "pixel_accuracy": 0.9606277279555797,
+    "n_images": 240,
+    "n_empty_targets": 0
+  },
+  "images_with_crack": {
+    "iou": 0.4552732605797549,
+    "dice": 0.587547937175259,
+    "precision": 0.5451549803062031,
+    "recall": 0.7698453473237653,
+    "pixel_accuracy": 0.9606277279555797,
+    "n_images": 240,
+    "n_empty_targets": 0
+  },
+  "false_alarm_rate": null
+}

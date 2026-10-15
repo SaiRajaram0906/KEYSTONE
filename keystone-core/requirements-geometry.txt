@@ -1,0 +1,4 @@
+-r requirements-base.txt
+# Point cloud processing: normals, ICP refinement, PLY I/O.
+# Open3D 0.20 ships Windows wheels for Python 3.10-3.14, so 3.13 is fine.
+open3d>=0.18

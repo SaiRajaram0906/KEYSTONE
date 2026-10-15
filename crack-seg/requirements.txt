@@ -1,0 +1,23 @@
+# Core
+torch>=2.0
+torchvision>=0.15
+
+# Data and augmentation
+albumentations>=2.0
+opencv-python-headless>=4.8
+numpy>=1.24
+
+# Measurement (skeletonisation and distance transform)
+scikit-image>=0.21
+scipy>=1.10
+
+# Config and progress
+PyYAML>=6.0
+
+# Optional: only needed for the CrackForest .mat loader and plotting
+matplotlib>=3.7
+
+# Front end (app.py)
+streamlit>=1.50
+plotly>=5.18
+pandas>=2.0

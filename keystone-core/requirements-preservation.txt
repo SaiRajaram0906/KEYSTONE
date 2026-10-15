@@ -1,0 +1,4 @@
+-r requirements-base.txt
+# Reading photographs and computing sharpness / exposure clipping.
+opencv-python-headless>=4.8
+Pillow>=10.0

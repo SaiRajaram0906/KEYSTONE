@@ -1,0 +1,31 @@
+# Loss comparison — identical to default.yaml except the loss block.
+# Run:  python -m src.train --config configs/loss_bce.yaml
+# Then: python -m src.evaluate --checkpoint runs/loss_bce/best.pt
+
+seed: 42
+device: null
+out_dir: runs/loss_bce
+data:
+  root: data/processed
+  image_size: 320
+  batch_size: 8
+  val_frac: 0.15
+  test_frac: 0.15
+  num_workers: 2
+  aug_strength: medium
+model:
+  in_channels: 3
+  base: 32
+  depth: 4
+  bilinear: true
+  dropout: 0.0
+loss:
+  smooth: 1.0
+  name: bce
+  pos_weight: null
+train:
+  epochs: 40
+  lr: 0.0003
+  weight_decay: 0.0001
+  amp: true
+  early_stop_patience: 12

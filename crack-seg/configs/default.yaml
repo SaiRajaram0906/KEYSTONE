@@ -1,0 +1,45 @@
+# Default configuration for crack segmentation.
+#
+# Run:  python -m src.train --config configs/default.yaml
+#
+# The values below train in roughly 30-45 minutes on a free Colab T4 with
+# ~500 images. Start here, then use configs/ablation_*.yaml to vary one
+# thing at a time.
+
+seed: 42
+device: null          # null -> cuda if available, else cpu
+out_dir: runs/default
+
+data:
+  root: data/processed      # expects root/images and root/masks
+  image_size: 320           # square; 320 is a good speed/detail trade-off
+  batch_size: 8             # drop to 4 if you hit out-of-memory
+  val_frac: 0.15
+  test_frac: 0.15
+  num_workers: 2
+  aug_strength: medium      # light | medium | heavy
+
+model:
+  in_channels: 3
+  base: 32                  # 64 matches the paper but doubles memory
+  depth: 4
+  bilinear: true            # false -> learned ConvTranspose2d
+  dropout: 0.0              # try 0.1-0.2 if overfitting
+
+loss:
+  name: bce_dice            # bce | dice | bce_dice | focal | tversky | focal_tversky
+  bce_weight: 0.5
+  dice_weight: 0.5
+  pos_weight: auto          # 'auto' estimates it from the training split
+  # used by focal / tversky / focal_tversky:
+  alpha: 0.3
+  beta: 0.7
+  gamma: 2.0
+  smooth: 1.0
+
+train:
+  epochs: 40
+  lr: 0.0003
+  weight_decay: 0.0001
+  amp: true                 # mixed precision; ignored on CPU
+  early_stop_patience: 12
